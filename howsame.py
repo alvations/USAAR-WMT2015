@@ -13,4 +13,4 @@ trainvocab = set(file1.read().split())
 overlap = testvocab.intersection(trainvocab)
 diff = testvocab.difference(trainvocab)
 
-print overlap, diff, overlap/float(diff) 
+print len(overlap), len(diff), len(overlap)/float(len(trainvocab)), len(overlap)/float(len(testvocab))   
