@@ -27,10 +27,10 @@ testfile2 = '/media/2tb/wmt15/corpus.tok/train-de_en.de'
 fout = io.open('train-de_en', 'w', encoding='utf8')
 
 for engline, deuline in zip(sents(testfile1), sents(testfile2)):
-    engoverlap = set(engline.split()).difference(engvocab)
-    deuoverlap = set(deuline.split()).difference(deuvocab)
+    engoverlap = set(engline.split()).intersection(engvocab)
+    deuoverlap = set(deuline.split()).intersection(deuvocab)
     
-    if len(engoverlap) > 5 and len(deuoverlap) > 5:
+    if len(engoverlap) > 10 and len(deuoverlap) > 10:
         outline = unicode(engline+'\t'+deuline+'\n')
         #print engoverlap
         #print deuoverlap

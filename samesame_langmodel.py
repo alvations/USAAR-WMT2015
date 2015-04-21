@@ -28,13 +28,13 @@ fout_en = io.open('train-lm.en', 'w', encoding='utf8')
 fout_de = io.open('train-lm.de', 'w', encoding='utf8')
 
 for engline in sents(testfile1):
-    engoverlap = set(engline.split()).difference(engvocab)
+    engoverlap = set(engline.split()).intersection(engvocab)
     if len(engoverlap) > 10:
         print engoverlap
         fout_en.write(engline+'\n')
 
 for deuline in sents(testfile2):
-    deuoverlap = set(deuline.split()).difference(deuvocab)
+    deuoverlap = set(deuline.split()).intersection(deuvocab)
     if len(deuoverlap) > 10:
         fout_de.write(deuline+'\n')
         
