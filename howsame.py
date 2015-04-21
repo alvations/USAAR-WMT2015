@@ -6,11 +6,12 @@ from collections import Counter
 file1=io.open('newstest.deen.en', 'r')
 file2=io.open('train-de_en.min5.en')
 
-testvocab = set(file2.read().split())
-trainvocab = set(file1.read().split())
+testvocab = Counter(file2.read().split())
+trainvocab = Counter(file1.read().split())
 
+overlap = testvocab.keys().intersection(trainvocab.keys())
+diff = testvocab.keys().difference(trainvocab.keys())
 
-overlap = testvocab.intersection(trainvocab)
-diff = testvocab.difference(trainvocab)
+numwords = sum([testvocab[i] for i in overlap])
 
-print len(overlap), len(diff), len(overlap)/float(len(trainvocab)), len(overlap)/float(len(testvocab))   
+print len(overlap), len(testvocab), len(overlap)/float(len(testvocab)), numwords/float(sum(testvocab.values()))   
