@@ -9,8 +9,7 @@ file2=io.open('train-de_en.min5.en')
 testvocab = Counter(file2.read().split())
 trainvocab = Counter(file1.read().split())
 
-overlap = testvocab.keys().intersection(trainvocab.keys())
-diff = testvocab.keys().difference(trainvocab.keys())
+overlap = set(testvocab.keys()).intersection(trainvocab.keys())
 
 numwords = sum([testvocab[i] for i in overlap])
 
