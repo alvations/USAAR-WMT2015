@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os, sys, time, itertools, io
+import os, sys, time, itertools, io, string
 from collections import Counter
 
 from nltk.corpus import stopwords
@@ -12,8 +12,8 @@ def sents(infile):
         for i, line in enumerate(fin):
             yield line.strip()
 
-engstop = set(stopwords.words('english'))
-deustop = set(stopwords.words('german'))
+engstop = set(stopwords.words('english'))+[string.punctuation]
+deustop = set(stopwords.words('german'))+[string.punctuation]
 
 _engvocab = io.open('newstest.deen.en', 'r').read().split()
 _deuvocab = io.open('newstest.deen.de', 'r').read().split()
@@ -30,6 +30,7 @@ fout_de = io.open('train-lm.de', 'w', encoding='utf8')
 for engline in sents(testfile1):
     engoverlap = set(engline.split()).difference(engvocab)
     if len(engoverlap) > 10:
+        print engoverlap
         fout_en.write(engline+'\n')
 
 for deuline in sents(testfile2):
