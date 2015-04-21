@@ -32,7 +32,7 @@ onefile1 = 'newstest.deen.en'
 zerofile1 = '/media/2tb/wmt15/data/monolingual/en/news.2014.en.shuffled'
 testfile1 = '/media/2tb/wmt15/corpus.tok/train-de_en.en'
 # German
-onefile2 = 'newstest.deen.en'
+onefile2 = 'newstest.deen.de'
 zerofile2 = '/media/2tb/wmt15/data/monolingual/en/news.2014.de.shuffled'
 testfile2 = '/media/2tb/wmt15/corpus.tok/train-de_en.en'
 

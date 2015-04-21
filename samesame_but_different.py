@@ -22,7 +22,7 @@ engvocab = set(_engvocab).difference(engstop)
 deuvocab = set(_deuvocab).difference(deustop)
 
 testfile1 = '/media/2tb/wmt15/corpus.tok/train-de_en.en'
-testfile2 = '/media/2tb/wmt15/corpus.tok/train-de_en.en'
+testfile2 = '/media/2tb/wmt15/corpus.tok/train-de_en.de'
 
 fout = io.open('train-de_en', 'w', encoding='utf8')
 
