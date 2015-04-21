@@ -47,4 +47,6 @@ for enline, deline in zip(sents(testfile1), sents(testfile2)):
     is_eng = eng_classifier.predict(eng_vectorizer.transform(enline))
     is_deu = deu_classifier.predict(deu_vectorizer.transform(deline))
     if is_eng == is_deu == 1:
-        fout.write(enline + '\t' + deline + '\n')
+        outline = enline + '\t' + deline + '\n'
+        print outline
+        fout.write(outline)
