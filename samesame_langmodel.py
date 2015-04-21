@@ -12,8 +12,8 @@ def sents(infile):
         for i, line in enumerate(fin):
             yield line.strip()
 
-engstop = set(stopwords.words('english'))+[string.punctuation]
-deustop = set(stopwords.words('german'))+[string.punctuation]
+engstop = set(stopwords.words('english')+list(string.punctuation))
+deustop = set(stopwords.words('german')+list(string.punctuation))
 
 _engvocab = io.open('newstest.deen.en', 'r').read().split()
 _deuvocab = io.open('newstest.deen.de', 'r').read().split()
@@ -38,4 +38,3 @@ for deuline in sents(testfile2):
     if len(deuoverlap) > 10:
         fout_de.write(deuline+'\n')
         
-
