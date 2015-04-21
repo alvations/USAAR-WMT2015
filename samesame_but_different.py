@@ -30,7 +30,7 @@ for engline, deuline in zip(sents(testfile1), sents(testfile2)):
     engoverlap = set(engline.split()).difference(engvocab)
     deuoverlap = set(deuline.split()).difference(deuvocab)
     
-    if len(engoverlap) > 0 or len(deuoverlap) > 0:
+    if len(engoverlap) > 5 or len(deuoverlap) > 5:
         outline = unicode(engline+'\t'+deuline+'\n')
         print engoverlap
         print deuoverlap
