@@ -32,8 +32,8 @@ for engline, deuline in zip(sents(testfile1), sents(testfile2)):
     
     if len(engoverlap) > 5 or len(deuoverlap) > 5:
         outline = unicode(engline+'\t'+deuline+'\n')
-        print engoverlap
-        print deuoverlap
-        print outline
+        #print engoverlap
+        #print deuoverlap
+        #print outline
         fout.write(outline)
         
