@@ -11,17 +11,16 @@ def sents(infile, numlines=20000000):
     """ Lazy corpus reader that yields line. """
     with io.open(infile, 'r', encoding='utf8') as fin:
         for i, line in enumerate(fin):
-            if i > numlines:
-                break
-            yield line.strip()
+            if i < numlines:
+                yield line.strip()
 
-def train_classifier(onefile, zerofile, num_tags, ngram_order=2):
+def train_classifier(onefile, zerofile, num_tags, n=2):
     train_docs = itertools.chain(sents(onefile, num_tags), 
                              sents(zerofile, num_tags))
     ngram_vectorizer = CountVectorizer(analyzer='word',
                                    ngram_range=(n, n), min_df=1)
     trainset = ngram_vectorizer.fit_transform(train_docs)
-    tags = [1]*numtags + [0]*numtags
+    tags = [1]*num_tags + [0]*num_tags
     classifier = MultinomialNB()
     classifier.fit(trainset, tags)
     return ngram_vectorizer, classifier
@@ -46,7 +45,7 @@ deu_vectorizer, deu_classifier = train_classifier(onefile1, zerofile1, num_tags)
 for enline, deline in zip(sents(testfile1), sents(testfile2)):
     is_eng = eng_classifier.predict(eng_vectorizer.transform(enline))
     is_deu = deu_classifier.predict(deu_vectorizer.transform(deline))
-    if is_eng == is_deu == 1:
+    if is_eng == 1 and is_deu == 1:
         outline = enline + '\t' + deline + '\n'
         print outline
         fout.write(outline)
