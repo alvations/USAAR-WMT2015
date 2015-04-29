@@ -1,4 +1,4 @@
-<tstset trglang="ru" setid="newstest2015" srclang="any">
+<tstset trglang="en" setid="newstest2015" srclang="any">
 <DOC sysid="usaar" sysid="ref" docid="1012-bbc" genre="news" origlang="en">
 <p>
 <seg id="1">The prime ministers of India and Japan are in Tokyo</seg>
